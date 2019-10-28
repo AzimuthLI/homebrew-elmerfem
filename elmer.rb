@@ -18,6 +18,7 @@ class Elmer < Formula
   option "with-elmergui", "Build ElmerGUI"
   option "with-openmp", "Enable OpenMP support (experimental)"
   option "with-testing", "Run the quick tests"
+  option "with-lua", "Enable LUA support"
 
   depends_on "open-mpi" => [:f90, :recommended]
 
@@ -36,6 +37,7 @@ class Elmer < Formula
   def install
     cmake_args = %W[-DCMAKE_INSTALL_PREFIX=#{prefix}]
     cmake_args << "-DWITH_Hypre:BOOL=TRUE" if build.with? "hypre"
+    cmake_args << "-DWITH_LUA:BOOL=TRUE" if build.with? "lua"
     cmake_args << "-DWITH_ElmerIce:BOOL=TRUE" if build.with? "elmerice"
     cmake_args << "-DWITH_Mumps:BOOL=TRUE" if build.with? "mumps"
     cmake_args << "-DWITH_MPI:BOOL=FALSE" if build.without? "open-mpi"
