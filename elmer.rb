@@ -7,7 +7,7 @@ class Elmer < Formula
   """
   homepage "http://elmerfem.org"
 
-  head "https://github.com/ElmerCSC/elmerfem.git", :branch => "devel"
+  head "https://github.com/ElmerCSC/elmerfem.git", :branch => "elmerice"
 
   stable do
     url "https://github.com/ElmerCSC/elmerfem/archive/release-8.2.tar.gz"
